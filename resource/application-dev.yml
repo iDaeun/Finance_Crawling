@@ -1,0 +1,8 @@
+URL:
+  FINANCE: https://finance.naver.com/
+
+DB:
+  HOST: localhost
+  USER: user
+  PW: Test1234@
+  DB: crawling
