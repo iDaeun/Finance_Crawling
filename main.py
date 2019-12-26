@@ -81,7 +81,24 @@ def main():
     print(nasdaqTxt)
 
     print("~~~~~~~~~~~~~~~~")
+
+    # ② 환율: 미국, 일본, 유럽연합, 중국   
+    exchange0 = soup.find("div", class_="article2").find("tbody")
+    for ex in exchange0.find_all("tr"):
+        country = ex.find("th").find("a").get_text()
+        print(country)
+        tds =  ex.find_all("td")
+        exNum1 = tds[0].get_text()
+        exchange1 = tds[1].get_text().split(" ")
+        exNum2 = exchange1[1]
+        exTxt = exchange1[0]
+        print(exNum1)
+        print(exNum2)
+        print(exTxt)
+        print("~~~~~~~~~~~~~~~~")
     
+    # ③ 유가: 두바이유, WTI, 휘발유, 고급휘발유 
+
 
 if __name__ == '__main__':
 
