@@ -3,6 +3,6 @@ URL:
 
 DB:
   HOST: localhost
-  USER: user
-  PW: Test1234@
-  DB: crawling
+  USER: root
+  PW: admin
+  DB: CRAWLING_DEV
