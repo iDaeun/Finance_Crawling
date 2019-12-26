@@ -59,6 +59,7 @@ def main(args, logger):
                     kospiNum1 = kospi1.find("span", class_="num").get_text()
                     kospiNum2 = kospi1.find("span", class_="num2").get_text()
                     kospiTxt = "하락" if kospi0.find("span", class_="num_quot dn") else "상승"
+                    print("코스피")
                     print(kospiNum1)
                     print(kospiNum2)
                     print(kospiTxt)
@@ -67,12 +68,13 @@ def main(args, logger):
 
                     print("~~~~~~~~~~~~~~~~")
 
-                    # 코스닥 kosdaq_area group_quot
+                    # 코스닥
                     kosdaq0 = soup.find("div", class_="kosdaq_area group_quot")
                     kosdaq1 = kosdaq0.find("span", class_="num_quot dn") or kosdaq0.find("span", class_="num_quot up")
                     kosdaqNum1 = kosdaq1.find("span", class_="num").get_text()
                     kosdaqNum2 = kosdaq1.find("span", class_="num2").get_text()
                     kosdaqTxt = "하락" if kosdaq0.find("span", class_="num_quot dn") else "상승"
+                    print("코스닥")
                     print(kosdaqNum1)
                     print(kosdaqNum2)
                     print(kosdaqTxt)
@@ -89,6 +91,7 @@ def main(args, logger):
                     dow2 = dow0[1].get_text().split(" ")
                     dowNum2 = dow2[1]
                     dowTxt = dow2[0]
+                    print("다우")
                     print(dowNum1)
                     print(dowNum2)
                     print(dowTxt)
@@ -103,6 +106,7 @@ def main(args, logger):
                     nasdaq2 = nasdaq0[1].get_text().split(" ")
                     nasdaqNum2 = nasdaq2[1]
                     nasdaqTxt = nasdaq2[0]
+                    print("나스닥")
                     print(nasdaqNum1)
                     print(nasdaqNum2)
                     print(nasdaqTxt)
@@ -115,6 +119,7 @@ def main(args, logger):
                     exchange0 = soup.find("div", class_="article2").find("tbody")
                     for ex in exchange0.find_all("tr"):
                         exCountry = ex.find("th").find("a").get_text()
+                        print("환율")
                         print(exCountry)
                         tds =  ex.find_all("td")
                         exNum1 = tds[0].get_text()
@@ -134,6 +139,7 @@ def main(args, logger):
                     oil1 = oil0[1].find("tbody")
                     for o in oil1.find_all("tr"):
                         oilName = o.find("th").find("a").get_text().split("(")[0].strip()
+                        print("유가")
                         print(oilName)
                         tds = o.find_all("td")
                         oilNum1 = tds[0].get_text()
