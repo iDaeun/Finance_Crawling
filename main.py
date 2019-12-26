@@ -85,8 +85,8 @@ def main():
     # ② 환율: 미국, 일본, 유럽연합, 중국   
     exchange0 = soup.find("div", class_="article2").find("tbody")
     for ex in exchange0.find_all("tr"):
-        country = ex.find("th").find("a").get_text()
-        print(country)
+        exCountry = ex.find("th").find("a").get_text()
+        print(exCountry)
         tds =  ex.find_all("td")
         exNum1 = tds[0].get_text()
         exchange1 = tds[1].get_text().split(" ")
@@ -98,7 +98,21 @@ def main():
         print("~~~~~~~~~~~~~~~~")
     
     # ③ 유가: 두바이유, WTI, 휘발유, 고급휘발유 
-
+    oil0 = soup.find("h2", class_="h_oil").find_all_next()
+    oil1 = oil0[1].find("tbody")
+    for o in oil1.find_all("tr"):
+        oilName = o.find("th").find("a").get_text().strip()
+        print(oilName)
+        tds = o.find_all("td")
+        oilNum1 = tds[0].get_text()
+        oil2 = tds[1].get_text().split(" ")
+        oilNum2 = oil2[1]
+        oilTxt = oil2[0]
+        print(oilNum1)
+        print(oilNum2)
+        print(oilTxt)
+        print("~~~~~~~~~~~~~~~~")
+        
 
 if __name__ == '__main__':
 
