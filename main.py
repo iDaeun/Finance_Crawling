@@ -21,7 +21,7 @@ def dbInsert(sec1, sec2, num1, num2, txt):
     conn = pymysql.connect(host=TargetConfig.DB_HOST, user=TargetConfig.DB_USER, password=TargetConfig.DB_PW, db=TargetConfig.DB_NAME, charset='utf8')
     curs = conn.cursor()
 
-    sql = 'INSERT INTO FINANCE (SECTION_1, SECTION_2, NUM_1, NUM_2, TXT) VALUES (%s, %s, %s, %s, %s) ON DUPLICATE KEY UPDATE NUM_1 = %s, NUM_2 = %s, TXT = %s'
+    sql = 'INSERT INTO FINANCE (STOCK_TYPE, STOCK_SUBTYPE, STOCK_SCORE, STOCK_CHG_SCORE, STOCK_SCORE_TEXT) VALUES (%s, %s, %s, %s, %s) ON DUPLICATE KEY UPDATE STOCK_SCORE = %s, STOCK_CHG_SCORE = %s, STOCK_SCORE_TEXT = %s'
     data = (sec1, sec2, num1, num2, txt, num1, num2, txt)
     curs.execute(sql, data)
     conn.commit()
